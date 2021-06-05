@@ -5,17 +5,20 @@ import styles from './styles';
 
 
 const CarItem = (props) => {
+    const {name, tagLine, tagLineCTA, image} = props;
     return(
         <View style={styles.carContainer}>
-            <ImageBackground source={require('../../assets/images/ModelX.jpeg')} style={styles.image}></ImageBackground>
+            <ImageBackground source={image} style={styles.image}></ImageBackground>
             <View style={styles.titles}>
-            <Text style={styles.title}>Model S</Text>
-            <Text style={styles.subtitle}>Starting at $59,420</Text>
+                <Text style={styles.title}>{name}</Text>
+                <Text style={styles.subtitle}>{tagLine} {' '} <Text style={styles.subtitleCTA}>{tagLineCTA}</Text></Text>
             </View>
-
-            <StyleButton type="primary" content={"Custom Order"} onPress={() => {console.warn("custom order pressed")}}></StyleButton>
-            <StyleButton type="secondary" content={"Existing Inventory"} onPress={() => {console.warn("Existing Inventory pressed")}}></StyleButton>
-      </View>
+            <View style={styles.buttonContainer}>
+                <StyleButton type="primary" content={"Custom Order"} onPress={() => {console.warn("custom order pressed")}}></StyleButton>
+                <StyleButton type="secondary" content={"Existing Inventory"} onPress={() => {console.warn("Existing Inventory pressed")}}></StyleButton>
+            </View>
+            
+        </View>
     )
 }
 
